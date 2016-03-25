@@ -24,11 +24,7 @@ class Tests: XCTestCase {
         super.tearDown()
     }
 
-    func testDownloadOldestToNewest() {
-        XCTAssert(true, "Pass")
-    }
-
-    func testDownloadNewestToOldest() {
+    func testDownloadLatestMessages() {
         let expect = expectationWithDescription("Download messages")
         let limit = 623
         client.downloadLatestMessages(channelId, limit: limit) { messages, status in
@@ -47,11 +43,11 @@ class Tests: XCTestCase {
         waitForExpectationsWithTimeout(60, handler: nil)
     }
 
-    func testDownloadNewestToOldestWithDateLimit() {
+    func testDownloadLatestMessagesNewerThan() {
         let expect = expectationWithDescription("Download messages")
-        let limit = 2744
+        let limit = 1744
         let threeDaysAgo = NSDate().dateByAddingTimeInterval(-3 * 24 * 60 * 60)
-        client.downloadLatestMessages(channelId, limit: limit, asOldAs: PubNub.convertNSDate(threeDaysAgo)) { messages, status in
+        client.downloadLatestMessagesNewerThan(channelId, limit: limit, newerThan: PubNub.convertNSDate(threeDaysAgo)) { messages, status in
             XCTAssertGreaterThan(messages.count, 0)
             XCTAssertLessThanOrEqual(messages.count, 2744)
 
@@ -66,6 +62,30 @@ class Tests: XCTestCase {
                 XCTAssertGreaterThanOrEqual(tk, previousTK)
                 previousTK = tk
             }
+            expect.fulfill()
+        }
+        waitForExpectationsWithTimeout(60, handler: nil)
+    }
+
+    func testDownloadMessagesOlderThan() {
+        let expect = expectationWithDescription("Download messages")
+        let limit = 839
+        let threeDaysAgo = NSDate().dateByAddingTimeInterval(-3 * 24 * 60 * 60)
+        client.downloadMessagesOlderThan(channelId, limit: limit, olderThan: PubNub.convertNSDate(threeDaysAgo)) { messages, status in
+            XCTAssertEqual(messages.count, 839)
+
+            var previousTK = (messages.first?["timetoken"] as! NSNumber).longLongValue
+
+            // make sure messages are sorted from oldest to newest
+            for message in messages {
+                let tk = (message["timetoken"] as! NSNumber).longLongValue
+                XCTAssertGreaterThanOrEqual(tk, previousTK)
+                previousTK = tk
+            }
+
+            // make sure the last message is older than or equal to the begin time
+            XCTAssertLessThanOrEqual(previousTK, PubNub.convertNSDate(threeDaysAgo).longLongValue)
+
             expect.fulfill()
         }
         waitForExpectationsWithTimeout(60, handler: nil)
