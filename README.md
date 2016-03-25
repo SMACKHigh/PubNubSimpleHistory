@@ -23,6 +23,7 @@ pod "PubNubSimpleHistory"
 ## Author
 
 Terry Xu, coolnalu@gmail.com
+
 Kevin Flynn
 
 ## License
