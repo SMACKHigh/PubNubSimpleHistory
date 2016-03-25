@@ -5,6 +5,10 @@ import PubNubSimpleHistory
 
 class Tests: XCTestCase {
 
+    static let publishKey: String = "pub"
+    static let subscribeKey: String = "sub"
+    let channelId: String = "test"
+
     lazy var configuration: PNConfiguration = {
         let lazyConfig = PNConfiguration(publishKey: publishKey, subscribeKey: subscribeKey)
         return lazyConfig
