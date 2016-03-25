@@ -1,0 +1,6 @@
+framework module PubNubSimpleHistory {
+  umbrella header "PubNubSimpleHistory-umbrella.h"
+
+  export *
+  module * { export * }
+}
