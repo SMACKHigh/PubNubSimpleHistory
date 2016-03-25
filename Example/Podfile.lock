@@ -30,7 +30,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   PubNub: a05f2a2c6cc1f637a0c473f236c4671c0b8c09b1
-  PubNubSimpleHistory: 4c11cdbc3268ec9f4c470caec5c15b37fa2c00c5
+  PubNubSimpleHistory: 22c18ea2bcdd6f2b9c55242ac06d423c9d90bca7
   Quick: a5221fc21788b6aeda934805e68b061839bc3165
 
 COCOAPODS: 0.39.0

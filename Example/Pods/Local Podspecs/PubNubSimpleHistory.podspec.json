@@ -1,17 +1,21 @@
 {
   "name": "PubNubSimpleHistory",
   "version": "0.1.0",
-  "summary": "A short description of PubNubSimpleHistory.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/PubNubSimpleHistory",
-  "license": "MIT",
+  "summary": "An easier-to-understand extension for PubNub history API",
+  "description": "PubNub history API is a bit hard to wrap head around. We've added some convenient methods to make it easier to use.",
+  "homepage": "https://github.com/SMACKHigh/PubNubSimpleHistory",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
   "authors": {
-    "Terry Xu": "coolnalu@gmail.com"
+    "Terry Xu": "terry@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/PubNubSimpleHistory.git",
+    "git": "https://github.com/SMACKHigh/PubNubSimpleHistory.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/coolnalu",
   "platforms": {
     "ios": "8.0"
   },

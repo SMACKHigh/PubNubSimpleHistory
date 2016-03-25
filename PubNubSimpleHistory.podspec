@@ -1,34 +1,19 @@
-#
-# Be sure to run `pod lib lint PubNubSimpleHistory.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
+
   s.name             = "PubNubSimpleHistory"
   s.version          = "0.1.0"
-  s.summary          = "A short description of PubNubSimpleHistory."
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+  s.summary          = "An easier-to-understand extension for PubNub history API"
   s.description      = <<-DESC
-                       DESC
-
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/PubNubSimpleHistory"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
-  s.author           = { "Terry Xu" => "coolnalu@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/PubNubSimpleHistory.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.platform     = :ios, '8.0'
-  s.requires_arc = true
-
-  s.source_files = 'Pod/Classes/**/*'
+    PubNub history API is a bit hard to wrap head around. We\'ve added some convenient methods to make it easier to use.
+  DESC
+  s.homepage         = "https://github.com/SMACKHigh/PubNubSimpleHistory"
+  s.license          = { :type => "MIT", :file => "LICENSE" }
+  s.author           = { "Terry Xu" => "terry@gmail.com" }
+  s.source           = { :git => "https://github.com/SMACKHigh/PubNubSimpleHistory.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/coolnalu'
+  s.platform         = :ios, '8.0'
+  s.requires_arc     = true
+  s.source_files     = 'Pod/Classes/**/*'
   s.dependency 'PubNub'
+
 end
