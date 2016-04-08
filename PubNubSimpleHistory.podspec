@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   DESC
   s.homepage         = "https://github.com/SMACKHigh/PubNubSimpleHistory"
   s.license          = { :type => "MIT", :file => "LICENSE" }
-  s.author           = { "Terry Xu" => "terry@gmail.com" }
+  s.author           = { "Terry Xu" => "https://twitter.com/coolnalu", "Kevin Flynn" => "https://twitter.com/KevinMarkFlynn" }
   s.source           = { :git => "https://github.com/SMACKHigh/PubNubSimpleHistory.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/coolnalu'
   s.platform         = :ios, '8.0'
