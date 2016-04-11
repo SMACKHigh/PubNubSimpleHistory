@@ -131,7 +131,8 @@ public extension PubNub {
     }
 
     public static func convertNSDate(date: NSDate) -> NSNumber {
-        return date.timeIntervalSince1970 * 10_000_000
+        // Rely on PubNub's precision correction mechanism to convert it properly.
+        return date.timeIntervalSince1970
     }
 
     func queue(block: dispatch_block_t) {
