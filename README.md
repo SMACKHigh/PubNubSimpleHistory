@@ -51,6 +51,11 @@ it, simply add the following line to your Podfile:
 pod "PubNubSimpleHistory"
 ```
 
+## Publishing
+```
+pod trunk push PubNubSimpleHistory.podspec 
+```
+
 ## Author
 
 Terry Xu [@coolnalu](https://twitter.com/coolnalu)
