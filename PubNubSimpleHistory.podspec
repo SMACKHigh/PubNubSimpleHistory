@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = "PubNubSimpleHistory"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "An easier-to-understand extension for PubNub history API"
   s.description      = <<-DESC
     PubNub history API is a bit hard to wrap head around. We\'ve added some convenient methods to make it easier to use.
