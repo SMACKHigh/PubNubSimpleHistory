@@ -23,7 +23,7 @@ public extension PubNub {
      - parameter pageSize:   optional how many messages to download per request, maximum is 100
      - parameter completion: required result handler, if any errors occurred PNErrorStatus will be set
      */
-    public func downloadLatestMessages(inChannel: String, limit: Int, pageSize: Int? = 100, completion: ([[String:AnyObject]], PNErrorStatus?) -> Void) {
+    public func downloadLatestMessages(inChannel: String, limit: Int, pageSize: Int? = 100, completion:  @escaping ([[String:AnyObject]], PNErrorStatus?) -> Void) {
         downloadMessages(inChannel, limit: limit, newerThan: nil, olderThan: nil, pageSize: pageSize, completion: completion)
     }
 
@@ -37,7 +37,7 @@ public extension PubNub {
      - parameter pageSize:   optional how many messages to download per request, maximum is 100
      - parameter completion: required result handler, if any errors occurred PNErrorStatus will be set
      */
-    public func downloadLatestMessagesNewerThan(inChannel: String, limit: Int?, newerThan: NSNumber? = nil, pageSize: Int? = 100, completion: ([[String:AnyObject]], PNErrorStatus?) -> Void) {
+    public func downloadLatestMessagesNewerThan(inChannel: String, limit: Int?, newerThan: NSNumber? = nil, pageSize: Int? = 100, completion: @escaping ([[String:AnyObject]], PNErrorStatus?) -> Void) {
         downloadMessages(inChannel, limit: limit ?? Int.max, newerThan: newerThan, olderThan: nil, pageSize: pageSize, completion: completion)
     }
 
@@ -51,12 +51,12 @@ public extension PubNub {
      - parameter pageSize:   optional how many messages to download per request, maximum is 100
      - parameter completion: required result handler, if any errors occurred PNErrorStatus will be set
      */
-    public func downloadMessagesOlderThan(inChannel: String, limit: Int, olderThan: Double, pageSize: Int? = 100, completion: ([[String:AnyObject]], PNErrorStatus?) -> Void) {
+    public func downloadMessagesOlderThan(inChannel: String, limit: Int, olderThan: Double, pageSize: Int? = 100, completion:  @escaping ([[String:AnyObject]], PNErrorStatus?) -> Void) {
 
         downloadMessages(inChannel, limit: limit, newerThan: nil, olderThan: olderThan, pageSize: pageSize, completion: completion)
     }
 
-    func downloadMessages(_ inChannel: String, limit: Int, newerThan: NSNumber? = nil, olderThan: Double? = nil, pageSize: Int? = 100, completion: ([[String:AnyObject]], PNErrorStatus?) -> Void) {
+    func downloadMessages(_ inChannel: String, limit: Int, newerThan: NSNumber? = nil, olderThan: Double? = nil, pageSize: Int? = 100, completion:  @escaping ([[String:AnyObject]], PNErrorStatus?) -> Void) {
 
         let PUBNUB_LIMIT = (pageSize ?? 0) > 100 || (pageSize ?? 0) < 0 ? 100 : (pageSize ?? 100)
 
@@ -113,7 +113,7 @@ public extension PubNub {
                 results.insert(messages, at: 0)
                 total += messages.count
 
-                if messages.count < PUBNUB_LIMIT || total >= limit || oldest.longLongValue <= newerThan?.int64Value? {
+                if messages.count < PUBNUB_LIMIT || total >= limit || oldest.int64Value <= (newerThan?.int64Value ?? 0) {
                     // We are done
                     finish(status)
                 } else {
